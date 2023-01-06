@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+## lecture 26 Named Exports
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### export a variable
 
-## Available Scripts
+```
+export let fname = 'Chandler';
+export let lname = 'Bing';
+```
 
-In the project directory, you can run:
+### import a variable
 
-### `npm start`
+```
+import { fname, lname } from './ModuleB';
+console.log(`${fname} ${lname}`);
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### export alot of variables
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+// export many variable as a single object
+let fname = 'Chandler';
+let lname = 'Bing';
+let age = 28;
+let address = 'pakistan';
 
-### `npm test`
+export { fname, lname, age, address };
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### import alot of variables
 
-### `npm run build`
+```
+import { fname, lname, age, address } from './ModuleB';
+console.log(`${fname} ${lname} ${age} ${address}`);
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### providing an alias at the import
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+use `as` keyword for aliases
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+// Providing alias use "as" keyword
+import { fname as f, lname as l, age, address } from './ModuleB';
+console.log(`${f} ${l} ${age} ${address}`);
+```
 
-### `npm run eject`
+### imports get hoisted in Modules
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+// imports get hoisted
+console.log('Module A log 1');
+import { fname as f, lname as l, age, address } from './ModuleB';
+console.log('Module A log 2');
+console.log(`${f} ${l} ${age} ${address}`);
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This will give error `Import in body of module; reorder to top`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### imports cannot be changed except objects
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+// imports cannot be change except the objects
+import { fname, lname, age, address, obj } from './ModuleB';
+// let fname = 'idrees'; // not possible
+obj.name = 'munir'; // this is possible as it is object
+console.log(`${fname} ${lname} ${age} ${address} ${obj.name}`);
+```
 
-## Learn More
+```
+// exports as object can be change at the import side
+let fname = 'Chandler';
+let lname = 'Bing';
+let age = 28;
+let address = 'pakistan';
+let obj = {
+  name: 'aamir',
+};
+console.log('Module B Log');
+export { fname, lname, age, address, obj };
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const ModuleB = () => {
+  return <div>ModuleB</div>;
+};
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default ModuleB;
+```
