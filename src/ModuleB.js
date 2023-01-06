@@ -26,19 +26,23 @@
 
 // export default ModuleB;
 
-// exports as object can be change at the import side
-let fname = 'Chandler';
-let lname = 'Bing';
-let age = 28;
-let address = 'pakistan';
-let obj = {
-  name: 'aamir',
-};
-console.log('Module B Log');
-export { fname, lname, age, address, obj };
+// // exports as object can be change at the import side
+// let fname = 'Chandler';
+// let lname = 'Bing';
+// let age = 28;
+// let address = 'pakistan';
+// let obj = {
+//   name: 'aamir',
+// };
+// console.log('Module B Log');
+// export { fname, lname, age, address, obj };
 
-const ModuleB = () => {
-  return <div>ModuleB</div>;
-};
+// const ModuleB = () => {
+//   return <div>ModuleB</div>;
+// };
 
-export default ModuleB;
+// export default ModuleB;
+
+/* lecture 27 Default Export */
+let fname = 'Aamir';
+export default fname;

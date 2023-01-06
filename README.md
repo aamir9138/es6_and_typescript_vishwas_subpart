@@ -83,3 +83,34 @@ const ModuleB = () => {
 
 export default ModuleB;
 ```
+
+## lecture 27 Default Exports
+
+### default export syntax
+
+if we have one variable we can export it as `default`
+
+```
+/* lecture 27 Default Export */
+let fname = "Aamir"
+export default fname
+```
+
+### default import
+
+1. so if we have default export and we want to import it. we don't need curly braces for defaults. also we can change the name of the imports. it is not necessary to be the same as in case of `Named Exports`
+
+```
+/* lecture 27 Default Exports */
+// we can change name of default exports i.e here from fname -> firstName
+import firstName from './ModuleB';
+console.log(`${firstName}`);
+```
+
+2. we can alias the default imports also
+
+```
+// aliasing default imports
+import { default as f } from './ModuleB';
+console.log(`${f}`);
+```
