@@ -43,6 +43,20 @@
 
 // export default ModuleB;
 
-/* lecture 27 Default Export */
-let fname = 'Aamir';
-export default fname;
+// /* lecture 27 Default Export */
+// let fname = 'Aamir';
+// export default fname;
+
+/* lecture 28 Exporting Functions and Classes */
+export function greet(message) {
+  console.log(message);
+}
+
+export class GreetMessage {
+  constructor() {
+    console.log('constructor');
+  }
+  greet() {
+    console.log('Greet method in class');
+  }
+}

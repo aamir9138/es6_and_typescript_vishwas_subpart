@@ -114,3 +114,53 @@ console.log(`${firstName}`);
 import { default as f } from './ModuleB';
 console.log(`${f}`);
 ```
+
+## lecture 28 Exporting Functions and Classes
+
+### exporting functions
+
+same as variables we can export functions also in ES6
+
+```
+/* lecture 28 Exporting Functions and Classes */
+export function greet(message) {
+  console.log(message);
+}
+```
+
+import the function
+
+```
+/* lecture 28 Exporting Functions and Classes */
+// import greet function from ModuleB
+import { greet } from './ModuleB';
+// invoke greet function with a message
+greet('Hello world');
+```
+
+### exporting classes
+
+same as variables and function add `export` keyword with class to export it
+
+```
+export class GreetMessage {
+  constructor() {
+    console.log('constructor');
+  }
+  greet() {
+    console.log('Greet method in class');
+  }
+}
+```
+
+import is also the same as function
+
+```
+// import GreetMessage class
+import { greet, GreetMessage } from './ModuleB';
+greet('Hello world');
+// instantiate GreetMessage class
+let greetMessage = new GreetMessage();
+// call method of the class
+greetMessage.greet();
+```

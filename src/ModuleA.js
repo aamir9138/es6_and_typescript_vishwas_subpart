@@ -23,9 +23,23 @@
 // import firstName from './ModuleB';
 // console.log(`${firstName}`);
 
-// aliasing default imports
-import { default as f } from './ModuleB';
-console.log(`${f}`);
+// // aliasing default imports
+// import { default as f } from './ModuleB';
+// console.log(`${f}`);
+
+/* lecture 28 Exporting Functions and Classes */
+// // import greet function from ModuleB
+// import { greet } from './ModuleB';
+// // invoke greet function with a message
+// greet('Hello world');
+
+// import GreetMessage class
+import { greet, GreetMessage } from './ModuleB';
+greet('Hello world');
+// instantiate GreetMessage class
+let greetMessage = new GreetMessage();
+// call method of the class
+greetMessage.greet();
 
 const ModuleA = () => {
   return <div>ModuleA</div>;
