@@ -164,3 +164,59 @@ let greetMessage = new GreetMessage();
 // call method of the class
 greetMessage.greet();
 ```
+
+## lecture 29 Sets & Maps
+
+### Set
+
+a set is nothing but a list of values which are unique. the list cannot contain any duplicates. if ES5 we would do it like this
+
+```
+let mySet = Object.create(null)
+mySet.id = true;
+if(mySet.id){
+  console.log("id exists")
+}
+```
+
+if we use `mySet.id = 1` it will give us `id exists` but if we use `mySet.id = 0` it will not console anything. but zero can be an id. which means it is not correct implementation
+so this was very confusing in ES5
+
+### Map
+
+a Map is nothing more than a collection of key value pair.so in ES5 we would do something like below
+
+```
+let myMap = Object.create(null);
+myMap.name = "Chandler";
+let val = myMap.name;
+console.log(val);
+```
+
+this is fine if we have something like this.
+
+```
+myMap[100] = "Hello"
+console.log(myMap["100"])
+```
+
+so if you notice if we have to console log `myMap[100]` the value 100 must be written in a string. why because Object properties can only be strings. so when we pass a number it will be coerced as a string. so the number 100 and string "100" both refers to the same property so this can be a huge problem.
+
+### using objects as keys
+
+let say we have 2 objects and pass those objects as properties like below
+
+```
+let ob1 = {}
+let ob2 = {}
+myMap[ob1] = "World"
+
+console.log(myMap[ob1])  // World
+console.log(myMap[ob2])  // World
+
+console.log(ob1.toString()) // [Object Object]
+console.log(ob2.toString()) // [Object Object]
+```
+
+in the above both will give us output as `World` which is strange this is because objects are converted to string as `[Object Object]` which is the same for both.
+so as we can see we are surely missing a data structure for mapping values in ES5. so lets see what is changed in ES6
