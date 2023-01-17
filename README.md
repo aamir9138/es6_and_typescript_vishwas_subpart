@@ -165,7 +165,7 @@ let greetMessage = new GreetMessage();
 greetMessage.greet();
 ```
 
-## lecture 29 Sets & Maps
+## lecture 29 Sets & Maps in ES5
 
 ### Set
 
@@ -220,3 +220,65 @@ console.log(ob2.toString()) // [Object Object]
 
 in the above both will give us output as `World` which is strange this is because objects are converted to string as `[Object Object]` which is the same for both.
 so as we can see we are surely missing a data structure for mapping values in ES5. so lets see what is changed in ES6
+
+## lecture 30 Sets ES6
+
+so in ES6 we can create a set with a `new` keyword as `let mySet = new Set()`. and then we can add items to it using `.add()` with it as below.
+
+```
+let mySet = new Set();
+mySet.add("Hello");
+mySet.add(1);
+```
+
+then we can check the size of it using `.size`. as below
+
+```
+let mySet = new Set();
+mySet.add("Hello");
+mySet.add(1);
+console.log(mySet.size)  // 2 as two items
+```
+
+also in case of objects it will not convert objects type to strings as previously. so a new item will be added for each object. so each object will be unique
+
+```
+let mySet = new Set();
+let obj1 = {}
+let obj2 = {}
+
+mySet.add("Hello");
+mySet.add(1);
+mySet.add(obj1);
+mySet.add(obj2);
+
+console.log(mySet.size)  // 4 as four items added
+```
+
+we can initialize Sets with arrays while defining the sets as below
+
+```
+let newSet = new Set([1,2,2,3,3,3,4,4])
+console.log(newSet.size) // 4 because four unique items
+```
+
+we can do chaining on `add()` methods on Sets
+
+```
+let chainSet = new Set().add("hello").add("World")
+console.log(chainSet.size) // 2
+```
+
+if we want to check the existence of a value in a set we use `.has()` method
+
+```
+let newSet = new Set([1,2,2,3,3,3,4,4])
+console.log(newSet.has(2)) // true
+console.log(newSet.has(5)) // false
+```
+
+and to delete a value we use `.delete()`
+
+```
+console.log(newSet.delete(1)) // 3 because one item is now deleted
+```

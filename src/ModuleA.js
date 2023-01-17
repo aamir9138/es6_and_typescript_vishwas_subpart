@@ -33,15 +33,26 @@
 // // invoke greet function with a message
 // greet('Hello world');
 
-// import GreetMessage class
-import { greet, GreetMessage } from './ModuleB';
-greet('Hello world');
-// instantiate GreetMessage class
-let greetMessage = new GreetMessage();
-// call method of the class
-greetMessage.greet();
+// // import GreetMessage class
+// import { greet, GreetMessage } from './ModuleB';
+// greet('Hello world');
+// // instantiate GreetMessage class
+// let greetMessage = new GreetMessage();
+// // call method of the class
+// greetMessage.greet();
+
+// const ModuleA = () => {
+//   return <div>ModuleA</div>;
+// };
+// export default ModuleA;
+
+/* lecture 30 Sets */
 
 const ModuleA = () => {
+  let mySet = new Set();
+  mySet.add('Hello');
+  mySet.add(1);
+  console.log(mySet);
   return <div>ModuleA</div>;
 };
 export default ModuleA;
