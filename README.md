@@ -379,3 +379,59 @@ myMap.clear()
 console.log(myMap.has("fname")) // false
 console.log(myMap.size) // 0
 ```
+
+## lecture 33 Iterating over Maps
+
+Scratch js was use for this lecture. which I was not able to install.
+
+we can use arrays to initialize a Map.
+
+```
+let myMap = new Map([
+  ["fname", "Aamir"],
+  ["lname", "Muhammad"]
+])
+```
+
+we can iterate over the Map using `for of` loop over `myMap.keys()` and `myMap.values()` to access the keys and values
+
+```
+let myMap = new Map([
+  ["fname", "Aamir"],
+  ["lname", "Muhammad"]
+])
+
+for (let key of myMap.keys()){
+  console.log(key)
+}
+
+for (let value of myMap.values()){
+  console.log(value)
+}
+```
+
+we can also loop over the `myMap.entries()`
+
+```
+let myMap = new Map([
+  ["fname", "Aamir"],
+  ["lname", "Muhammad"]
+])
+
+for (let entry of myMap.entries()){
+  console.log(`${entry[0]} -> ${entry[1]}`)
+}
+```
+
+also we can destructure the entries
+
+```
+let myMap = new Map([
+  ["fname", "Aamir"],
+  ["lname", "Muhammad"]
+])
+
+for (let [key,value] of myMap.entries()){
+  console.log(`${key} -> ${value}`)
+}
+```
