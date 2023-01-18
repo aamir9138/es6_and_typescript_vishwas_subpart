@@ -308,3 +308,74 @@ set.add(key)
 console.log(set.has(key)) // true
 key = null // we can no more further check even the reference is removed. we have to put our faith on Javascript engine
 ```
+
+## lecture 32 Maps
+
+in ES6 Maps is an ordered list of key value pairs. in Maps both the key and value can be of any type. unlike ES5 where key has to be ony a string.
+
+to create a Map we have to new it.
+
+```
+let myMap = new Map();
+```
+
+to add values we use `.set()`
+
+```
+let myMap = new Map();
+myMap.set("fname", "chandler")
+myMap.set("age", 30)
+```
+
+and to access the values we use `.get()` on the key
+
+```
+let myMap = new Map();
+myMap.set("fname", "chandler")
+myMap.set("age", 30)
+console.log(myMap.get("fname")) // chandler
+```
+
+we can use objects as keys in Maps
+
+```
+let myMap = new Map();
+myMap.set("fname", "chandler")
+myMap.set("age", 30)
+
+let ob1 = {}
+let ob2 = {}
+
+myMap.set(ob1, 10)
+myMap.set(ob2, 50)
+
+console.log(myMap.get(ob1)) // 10
+```
+
+to check the key,value pair numbers we can use `.size`
+
+```
+console.log(myMap.size) // 4
+```
+
+we can also check if a key is present in a Map.
+
+```
+console.log(myMap.has("fname")) // true
+```
+
+we can also delete a key value pair using its key
+
+```
+myMap.delete("fname")
+console.log(myMap.has("fname")) // false because now deleted
+console.log(myMap.size) // 3 size now reduced to 3
+```
+
+if we use `.clear()` all the key value pairs will be deleted
+
+```
+myMap.clear()
+console.log(myMap.has("fname")) // false
+console.log(myMap.size) // 0
+```
