@@ -282,3 +282,29 @@ and to delete a value we use `.delete()`
 ```
 console.log(newSet.delete(1)) // 3 because one item is now deleted
 ```
+
+## lecture 31 WeakSets
+
+The sets we did in previous lecture are in a why strong sets. because it store reference of the objects. a WeakSet is pretty much the same the only of it is that we can avoid memory leaks.
+
+with normal sets what we can have is.
+
+```
+let mySet = new Set()
+let key = {}
+mySet.add(key)
+console.log(mySet.size)
+key = null
+console.log(mySet.size)
+key = [...mySet][0]
+```
+
+with weak sets
+
+```
+let set = new WeakSet()
+let key = {}
+set.add(key)
+console.log(set.has(key)) // true
+key = null // we can no more further check even the reference is removed. we have to put our faith on Javascript engine
+```
