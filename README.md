@@ -488,3 +488,16 @@ forEach on sets is also introduced in ES6. but the `key` and `value` here is the
     console.log(mySet === set); // true
   }
 ```
+
+## lecture 35 WeakMaps
+
+In ES6 WeakMaps do exist. we can set a value using an object also and get that value. and when object is assigned a null value we can no more access the value.
+
+```
+  /* lecture 35 WeakMaps */
+  let myMap = new WeakMap();
+  let ob1 = {};
+  myMap.set(ob1, 'Hello World');
+  console.log(myMap.get(ob1)); // Hello World
+  ob1 = null // no more access possible
+```

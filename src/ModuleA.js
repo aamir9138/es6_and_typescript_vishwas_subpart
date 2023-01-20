@@ -86,17 +86,24 @@ const ModuleA = () => {
   //   console.log(myMap === map);
   // }
 
-  // forEach on Sets
-  let mySet = new Set([2, 'aa', 7, 9]);
-  mySet.forEach(setFunction);
+  // // forEach on Sets
+  // let mySet = new Set([2, 'aa', 7, 9]);
+  // mySet.forEach(setFunction);
 
-  function setFunction(value, key, set) {
-    console.log(`${key} -> ${value}`);
-    // 2 -> 2
-    // aa -> aa
-    // 7 -> 7
-    console.log(mySet === set); // true
-  }
+  // function setFunction(value, key, set) {
+  //   console.log(`${key} -> ${value}`);
+  //   // 2 -> 2
+  //   // aa -> aa
+  //   // 7 -> 7
+  //   console.log(mySet === set); // true
+  // }
+
+  /* lecture 35 WeakMaps */
+  let myMap = new WeakMap();
+  let ob1 = {};
+  myMap.set(ob1, 'Hello World');
+  console.log(myMap.get(ob1)); // Hello World
+  ob1 = null;
   return <div>ModuleA</div>;
 };
 export default ModuleA;
