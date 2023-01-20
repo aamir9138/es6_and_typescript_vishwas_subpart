@@ -46,13 +46,57 @@
 // };
 // export default ModuleA;
 
-/* lecture 30 Sets */
+// /* lecture 30 Sets */
+
+// const ModuleA = () => {
+//   let mySet = new Set();
+//   mySet.add('Hello');
+//   mySet.add(1);
+//   console.log(mySet);
+//   return <div>ModuleA</div>;
+// };
+// export default ModuleA;
+
+/* lecture 34 forEach */
 
 const ModuleA = () => {
-  let mySet = new Set();
-  mySet.add('Hello');
-  mySet.add(1);
-  console.log(mySet);
+  // // forEach on Arrays
+  // let myArray = [2, 4, 6, 8];
+  // myArray.forEach(arrayFunction);
+  // function arrayFunction(element, index, array) {
+  //   console.log(`arr[${index}] = ${element}`);
+  //   // arr[0] = 2
+  //   // arr[1] = 4
+  //   // arr[2] = 6
+  //   // arr[3] = 8
+  //   console.log(myArray === array); //true
+
+  // // forEach on Maps
+  // let myMap = new Map([
+  //   ['fname', 'Aamir'],
+  //   ['lname', 'Muhammad'],
+  // ]);
+  // myMap.forEach(mapFunction);
+
+  // function mapFunction(value, key, map) {
+  //   console.log(`${key} -> ${value}`);
+  //   // fname -> Aamir
+  //   // lname -> Muhammad
+  //   // true
+  //   console.log(myMap === map);
+  // }
+
+  // forEach on Sets
+  let mySet = new Set([2, 'aa', 7, 9]);
+  mySet.forEach(setFunction);
+
+  function setFunction(value, key, set) {
+    console.log(`${key} -> ${value}`);
+    // 2 -> 2
+    // aa -> aa
+    // 7 -> 7
+    console.log(mySet === set); // true
+  }
   return <div>ModuleA</div>;
 };
 export default ModuleA;
